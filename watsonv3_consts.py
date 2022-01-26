@@ -13,3 +13,4 @@
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
 GET_DEFAULT_VERSION = '2018-05-01'
+DEFAULT_TIMEOUT = 30
