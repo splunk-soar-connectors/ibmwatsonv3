@@ -15,16 +15,16 @@
 #
 #
 # Phantom App imports
+import json
+
 import phantom.app as phantom
-from phantom.base_connector import BaseConnector
+import requests
+from bs4 import BeautifulSoup
 from phantom.action_result import ActionResult
+from phantom.base_connector import BaseConnector
 
 # Usage of the consts file is recommended
 import watsonv3_consts as consts
-
-import requests
-import json
-from bs4 import BeautifulSoup
 
 
 class RetVal(tuple):
@@ -194,7 +194,8 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         json = {"text": text}
 
         # make rest call
-        ret_val, response = self._make_rest_call('/identify?version={}'.format(self._version), action_result, method='post', headers=headers, json=json)
+        ret_val, response = self._make_rest_call('/identify?version={}'.format(self._version), action_result, method='post',
+            headers=headers, json=json)
 
         if phantom.is_fail(ret_val):
             return action_result.get_status()
@@ -344,8 +345,10 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
 
 
 def main():
-    import pudb
     import argparse
+    import sys
+
+    import pudb
 
     pudb.set_trace()
 
@@ -354,12 +357,14 @@ def main():
     argparser.add_argument('input_test_json', help='Input Test JSON file')
     argparser.add_argument('-u', '--username', help='username', required=False)
     argparser.add_argument('-p', '--password', help='password', required=False)
+    argparser.add_argument('-v', '--verify', action='store_true', help='verify', required=False, default=False)
 
     args = argparser.parse_args()
     session_id = None
 
     username = args.username
     password = args.password
+    verify = args.verify
 
     if username is not None and password is None:
 
@@ -372,7 +377,7 @@ def main():
             login_url = WatsonLanguageTranslatorV3Connector._get_phantom_base_url() + '/login'
 
             print("Accessing the Login page")
-            r = requests.get(login_url, verify=False)
+            r = requests.get(login_url, verify=verify, timeout=consts.DEFAULT_TIMEOUT)
             csrftoken = r.cookies['csrftoken']
 
             data = dict()
@@ -385,12 +390,12 @@ def main():
             headers['Referer'] = login_url
 
             print("Logging into Platform to get the session id")
-            r2 = requests.post(login_url, verify=False,
-                               data=data, headers=headers)
+            r2 = requests.post(login_url, verify=verify,
+                               data=data, headers=headers, timeout=consts.DEFAULT_TIMEOUT)
             session_id = r2.cookies['sessionid']
         except Exception as e:
             print("Unable to get session id from the platform. Error: " + str(e))
-            exit(1)
+            sys.exit(1)
 
     with open(args.input_test_json) as f:
         in_json = f.read()
@@ -407,7 +412,7 @@ def main():
         ret_val = connector._handle_action(json.dumps(in_json), None)
         print(json.dumps(json.loads(ret_val), indent=4))
 
-    exit(0)
+    sys.exit(0)
 
 
 if __name__ == '__main__':
