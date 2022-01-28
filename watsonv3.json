@@ -16,7 +16,7 @@
     "utctime_updated": "2022-01-07T20:48:04.000000Z",
     "package_name": "phantom_watsonlanguagev3",
     "main_module": "watsonv3_connector.py",
-    "min_phantom_version": "4.9.39220",
+    "min_phantom_version": "5.1.0",
     "latest_tested_versions": [
         "Cloud, API Watson V3 tested on August 04, 2021"
     ],
