@@ -2,16 +2,16 @@
 # Watson \- Language Translator V3
 
 Publisher: Splunk  
-Connector Version: 1\.0\.1  
+Connector Version: 1\.0\.3  
 Product Vendor: IBM  
 Product Name: Watson Language Translator V3  
 Product Version Supported (regex): "\.\*"  
-Minimum Product Version: 4\.9\.39220  
+Minimum Product Version: 5\.1\.0  
 
 Leverage IBM Watson for language translation using API version V3
 
-[comment]: # " File: readme.md"
-[comment]: # "  Copyright (c) 2021 Splunk Inc."
+[comment]: # " File: README.md"
+[comment]: # "  Copyright (c) 2021-2022 Splunk Inc."
 [comment]: # "  Licensed under Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.txt)"
 [comment]: # ""
 Before you begin using the app:
