@@ -12,8 +12,8 @@
     "product_version_regex": ".*",
     "publisher": "Splunk",
     "license": "Copyright (c) 2021-2022 Splunk Inc.",
-    "app_version": "1.0.2",
-    "utctime_updated": "2022-01-07T20:48:04.000000Z",
+    "app_version": "1.0.3",
+    "utctime_updated": "2022-02-01T01:13:48.000000Z",
     "package_name": "phantom_watsonlanguagev3",
     "main_module": "watsonv3_connector.py",
     "min_phantom_version": "5.1.0",
@@ -552,4 +552,3 @@
         ]
     }
 }
-
