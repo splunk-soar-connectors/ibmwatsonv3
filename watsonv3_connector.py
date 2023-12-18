@@ -194,6 +194,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         json = {"text": text}
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/identify?version={}'.format(self._version), action_result, method='post',
             headers=headers, json=json)
 
@@ -226,6 +227,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/identifiable_languages?version={}'.format(self._version), action_result)
 
         if phantom.is_fail(ret_val):
@@ -249,6 +251,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/models?version={}'.format(self._version), action_result)
 
         if phantom.is_fail(ret_val):
@@ -281,6 +284,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         headers = {"accept": "application/json"}
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/translate?version={}'.format(self._version), action_result,
                                                 headers=headers, json=param, method='post')
 
