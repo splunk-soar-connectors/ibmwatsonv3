@@ -152,7 +152,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
             r = request_func(
                 url,
                 auth=('apikey', self._api_key),
-                verify=config.get('verify_server_cert', False),
+                verify=config.get(consts.WATSONV3_JSON_VERIFY_SERVER_CERT, False),
                 **kwargs
             )
         except Exception as e:
@@ -246,6 +246,8 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS)
 
     def _handle_list_translations(self, param):
+
+        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
 
         # Add an action result object to self (BaseConnector) to represent the action for this param
         action_result = self.add_action_result(ActionResult(dict(param)))
