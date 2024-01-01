@@ -11,7 +11,7 @@
     "fips_compliant": true,
     "product_version_regex": ".*",
     "publisher": "Splunk",
-    "license": "Copyright (c) 2021-2023 Splunk Inc.",
+    "license": "Copyright (c) 2021-2024 Splunk Inc.",
     "app_version": "1.0.4",
     "utctime_updated": "2022-02-01T01:13:48.000000Z",
     "package_name": "phantom_watsonlanguagev3",
