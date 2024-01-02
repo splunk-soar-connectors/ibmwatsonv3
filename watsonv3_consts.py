@@ -1,6 +1,6 @@
 # File: watsonv3_consts.py
 #
-# Copyright (c) 2021-2022 Splunk Inc.
+# Copyright (c) 2021-2024 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,3 +14,4 @@
 # and limitations under the License.
 GET_DEFAULT_VERSION = '2018-05-01'
 DEFAULT_TIMEOUT = 30
+WATSONV3_JSON_VERIFY_SERVER_CERT = 'verify_server_cert'

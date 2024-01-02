@@ -1,17 +1,17 @@
 [comment]: # "Auto-generated SOAR connector documentation"
-# Watson \- Language Translator V3
+# Watson - Language Translator V3
 
 Publisher: Splunk  
-Connector Version: 1\.0\.3  
+Connector Version: 1.0.4  
 Product Vendor: IBM  
 Product Name: Watson Language Translator V3  
-Product Version Supported (regex): "\.\*"  
-Minimum Product Version: 5\.1\.0  
+Product Version Supported (regex): ".\*"  
+Minimum Product Version: 5.1.0  
 
 Leverage IBM Watson for language translation using API version V3
 
 [comment]: # " File: README.md"
-[comment]: # "  Copyright (c) 2021-2022 Splunk Inc."
+[comment]: # "  Copyright (c) 2021-2024 Splunk Inc."
 [comment]: # "  Licensed under Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.txt)"
 [comment]: # ""
 Before you begin using the app:
@@ -30,10 +30,10 @@ The below configuration variables are required for this Connector to operate.  T
 
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
-**base\_url** |  required  | string | Watson URL
-**verify\_server\_cert** |  optional  | boolean | Verify server certificate
-**api\_key** |  required  | password | Watson API key
-**version** |  optional  | string | Watson current API version \(YYYY\-MM\-DD\)
+**base_url** |  required  | string | Watson URL
+**verify_server_cert** |  optional  | boolean | Verify server certificate
+**api_key** |  required  | password | Watson API key
+**version** |  optional  | string | Watson current API version (YYYY-MM-DD)
 
 ### Supported Actions  
 [test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration  
@@ -66,19 +66,19 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **text** |  required  | Text to identify | string | 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.parameter\.text | string | 
-action\_result\.data\.\*\.confidence | numeric | 
-action\_result\.data\.\*\.language | string |  `language` 
-action\_result\.data\.\*\.languages\.\*\.confidence | numeric | 
-action\_result\.data\.\*\.languages\.\*\.language | string | 
-action\_result\.summary\.high\_confidence\_match | string |  `language` 
-action\_result\.summary\.total\_languages | numeric | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.parameter.text | string |  |   Il s'agit d'un nouveau test  Bonjour comment allez-vous 
+action_result.data.\*.confidence | numeric |  |   0.836794 
+action_result.data.\*.language | string |  `language`  |   fr 
+action_result.data.\*.languages.\*.confidence | numeric |  |   0.995919 
+action_result.data.\*.languages.\*.language | string |  |   fr 
+action_result.summary.high_confidence_match | string |  `language`  |   fr 
+action_result.summary.total_languages | numeric |  |   62 
+action_result.message | string |  |   High confidence match: fr, Total languages: 62 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'list languages'
 List languages that can be used for translation
@@ -90,15 +90,15 @@ Read only: **True**
 No parameters are required for this action
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.data\.\*\.language | string |  `language` 
-action\_result\.data\.\*\.name | string | 
-action\_result\.summary\.total\_languages | numeric | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.data.\*.language | string |  `language`  |   fr 
+action_result.data.\*.name | string |  |   French 
+action_result.summary.total_languages | numeric |  |   62 
+action_result.message | string |  |   Total languages: 62 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'list translations'
 List languages translation models
@@ -110,24 +110,24 @@ Read only: **True**
 No parameters are required for this action
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.data\.\*\.base\_model\_id | string | 
-action\_result\.data\.\*\.customizable | boolean | 
-action\_result\.data\.\*\.default\_model | boolean | 
-action\_result\.data\.\*\.domain | string |  `domain` 
-action\_result\.data\.\*\.model\_id | string |  `watson translation model` 
-action\_result\.data\.\*\.name | string | 
-action\_result\.data\.\*\.owner | string | 
-action\_result\.data\.\*\.source | string | 
-action\_result\.data\.\*\.status | string | 
-action\_result\.data\.\*\.target | string | 
-action\_result\.data\.\*\.training\_log | string | 
-action\_result\.summary\.total\_models | numeric | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.data.\*.base_model_id | string |  |  
+action_result.data.\*.customizable | boolean |  |   True  False 
+action_result.data.\*.default_model | boolean |  |   True  False 
+action_result.data.\*.domain | string |  `domain`  |   conversational 
+action_result.data.\*.model_id | string |  `watson translation model`  |   en-fr 
+action_result.data.\*.name | string |  |   en-es-conversational 
+action_result.data.\*.owner | string |  |  
+action_result.data.\*.source | string |  |   en 
+action_result.data.\*.status | string |  |   available 
+action_result.data.\*.target | string |  |   es 
+action_result.data.\*.training_log | string |  |  
+action_result.summary.total_models | numeric |  |   32 
+action_result.message | string |  |   Total models: 32 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'translate text'
 Translate text from one language to another
@@ -135,7 +135,7 @@ Translate text from one language to another
 Type: **generic**  
 Read only: **True**
 
-If model\_id is specified the source and target parameters are ignored\.<br>If the action fails with the error <i>Model not found</i>, it means the service cannot translate the text as is and a customized model needs to be created\. Please see the Watson Language Translator documentation for instructions on creating a customized model\.
+If model_id is specified the source and target parameters are ignored.<br>If the action fails with the error <i>Model not found</i>, it means the service cannot translate the text as is and a customized model needs to be created. Please see the Watson Language Translator documentation for instructions on creating a customized model.
 
 #### Action Parameters
 PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
@@ -143,20 +143,20 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **text** |  required  | Text to translate | string | 
 **source** |  optional  | Source language | string |  `language` 
 **target** |  optional  | Target language | string |  `language` 
-**model\_id** |  optional  | Translation Model | string |  `watson translation model` 
+**model_id** |  optional  | Translation Model | string |  `watson translation model` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.parameter\.model\_id | string |  `watson translation model` 
-action\_result\.parameter\.source | string |  `language` 
-action\_result\.parameter\.target | string |  `language` 
-action\_result\.parameter\.text | string | 
-action\_result\.data\.\*\.character\_count | numeric | 
-action\_result\.data\.\*\.translations\.\*\.translation | string | 
-action\_result\.data\.\*\.word\_count | numeric | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric | 
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.parameter.model_id | string |  `watson translation model`  |   en-fr 
+action_result.parameter.source | string |  `language`  |   en 
+action_result.parameter.target | string |  `language`  |   fr 
+action_result.parameter.text | string |  |   this is a test again 
+action_result.data.\*.character_count | numeric |  |   20 
+action_result.data.\*.translations.\*.translation | string |  |   Il s'agit d'un nouveau test 
+action_result.data.\*.word_count | numeric |  |   5 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1 
