@@ -1,6 +1,6 @@
 # File: watsonv3_connector.py
 #
-# Copyright (c) 2021-2022 Splunk Inc.
+# Copyright (c) 2021-2024 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -152,7 +152,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
             r = request_func(
                 url,
                 auth=('apikey', self._api_key),
-                verify=config.get('verify_server_cert', False),
+                verify=config.get(consts.WATSONV3_JSON_VERIFY_SERVER_CERT, False),
                 **kwargs
             )
         except Exception as e:
@@ -194,6 +194,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         json = {"text": text}
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/identify?version={}'.format(self._version), action_result, method='post',
             headers=headers, json=json)
 
@@ -226,6 +227,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/identifiable_languages?version={}'.format(self._version), action_result)
 
         if phantom.is_fail(ret_val):
@@ -245,10 +247,13 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
 
     def _handle_list_translations(self, param):
 
+        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+
         # Add an action result object to self (BaseConnector) to represent the action for this param
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/models?version={}'.format(self._version), action_result)
 
         if phantom.is_fail(ret_val):
@@ -281,6 +286,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         headers = {"accept": "application/json"}
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/translate?version={}'.format(self._version), action_result,
                                                 headers=headers, json=param, method='post')
 

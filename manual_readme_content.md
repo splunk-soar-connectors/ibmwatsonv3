@@ -1,5 +1,5 @@
 [comment]: # " File: README.md"
-[comment]: # "  Copyright (c) 2021-2022 Splunk Inc."
+[comment]: # "  Copyright (c) 2021-2024 Splunk Inc."
 [comment]: # "  Licensed under Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.txt)"
 [comment]: # ""
 Before you begin using the app:
