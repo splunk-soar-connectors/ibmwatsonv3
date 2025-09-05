@@ -1,7 +1,7 @@
 # Watson - Language Translator V3
 
 Publisher: Splunk <br>
-Connector Version: 1.0.4 <br>
+Connector Version: 1.0.5 <br>
 Product Vendor: IBM <br>
 Product Name: Watson Language Translator V3 <br>
 Minimum Product Version: 5.1.0
