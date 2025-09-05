@@ -1,9 +1,9 @@
 # Watson - Language Translator V3
 
-Publisher: Splunk \
-Connector Version: 1.0.4 \
-Product Vendor: IBM \
-Product Name: Watson Language Translator V3 \
+Publisher: Splunk <br>
+Connector Version: 1.0.4 <br>
+Product Vendor: IBM <br>
+Product Name: Watson Language Translator V3 <br>
 Minimum Product Version: 5.1.0
 
 Leverage IBM Watson for language translation using API version V3
@@ -31,17 +31,17 @@ VARIABLE | REQUIRED | TYPE | DESCRIPTION
 
 ### Supported Actions
 
-[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration \
-[get language](#action-get-language) - Identifies the language of a given body of text \
-[list languages](#action-list-languages) - List languages that can be used for translation \
-[list translations](#action-list-translations) - List languages translation models \
+[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration <br>
+[get language](#action-get-language) - Identifies the language of a given body of text <br>
+[list languages](#action-list-languages) - List languages that can be used for translation <br>
+[list translations](#action-list-translations) - List languages translation models <br>
 [translate text](#action-translate-text) - Translate text from one language to another
 
 ## action: 'test connectivity'
 
 Validate the asset configuration for connectivity using supplied configuration
 
-Type: **test** \
+Type: **test** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -56,7 +56,7 @@ No Output
 
 Identifies the language of a given body of text
 
-Type: **generic** \
+Type: **generic** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -85,7 +85,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 List languages that can be used for translation
 
-Type: **generic** \
+Type: **generic** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -108,7 +108,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 List languages translation models
 
-Type: **generic** \
+Type: **generic** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -140,7 +140,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Translate text from one language to another
 
-Type: **generic** \
+Type: **generic** <br>
 Read only: **True**
 
 If model_id is specified the source and target parameters are ignored.<br>If the action fails with the error <i>Model not found</i>, it means the service cannot translate the text as is and a customized model needs to be created. Please see the Watson Language Translator documentation for instructions on creating a customized model.
