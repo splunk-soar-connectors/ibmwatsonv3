@@ -137,7 +137,7 @@ class WatsonLanguageTranslatorV3Connector(BaseConnector):
         url = self._base_url + "/v3" + endpoint
 
         try:
-            r = request_func(url, auth=("apikey", self._api_key), verify=config.get(consts.WATSONV3_JSON_VERIFY_SERVER_CERT, False), **kwargs)
+            r = request_func(url, auth=("apikey", self._api_key), verify=config.get(consts.WATSONV3_JSON_VERIFY_SERVER_CERT, True), **kwargs)
         except Exception as e:
             return RetVal(action_result.set_status(phantom.APP_ERROR, f"Error Connecting to server. Details: {e!s}"), resp_json)
 
