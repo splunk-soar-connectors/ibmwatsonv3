@@ -25,7 +25,7 @@ This table lists the configuration variables required to operate Watson - Langua
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
 **base_url** | required | string | Watson URL |
-**verify_server_cert** | optional | boolean | Verify server certificate |
+**allow_insecure_tls** | optional | boolean | Explicitly disable Watson server certificate verification. Leave disabled for secure TLS. |
 **api_key** | required | password | Watson API key |
 **version** | optional | string | Watson current API version (YYYY-MM-DD) |
 

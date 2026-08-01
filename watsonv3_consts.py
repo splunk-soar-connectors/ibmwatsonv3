@@ -14,4 +14,4 @@
 # and limitations under the License.
 GET_DEFAULT_VERSION = "2018-05-01"
 DEFAULT_TIMEOUT = 30
-WATSONV3_JSON_VERIFY_SERVER_CERT = "verify_server_cert"
+WATSONV3_JSON_ALLOW_INSECURE_TLS = "allow_insecure_tls"
