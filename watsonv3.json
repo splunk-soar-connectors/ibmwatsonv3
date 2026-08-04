@@ -28,10 +28,10 @@
             "required": true,
             "order": 0
         },
-        "verify_server_cert": {
-            "description": "Verify server certificate",
+        "allow_insecure_tls": {
+            "description": "Explicitly disable Watson server certificate verification. Leave disabled for secure TLS.",
             "data_type": "boolean",
-            "default": true,
+            "default": false,
             "order": 1
         },
         "api_key": {
